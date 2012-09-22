@@ -21,6 +21,10 @@ app.configure('development', function(){
 });
 
 app.get('/', function(req, res){
+  res.locals = {
+    title: "Welcome"
+  };
+
   res.render('index');
 });
 
