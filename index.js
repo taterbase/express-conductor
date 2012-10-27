@@ -1,1 +1,1 @@
-exports.module.init = require('./lib/express-conductor');
+exports.module = require('./lib/express-conductor');
