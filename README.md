@@ -38,5 +38,50 @@ expressConductor.init(app, {controllers: __dirname + '/controllers'}, function(e
 });
 ```
 
+Inside your routes/controllers folder you can structure your files however you want. 
+Express-conductor will traverse folders and grab any file. You can have a simple file layout
+
+```
+controllers
+|
+|-- index.js
+|
+|-- posts.js
+```
+
+Or you can have a nested structure to imitate actions
+
+```
+controllers
+|
+|-- Posts
+|    |
+|    |-- show.js
+|    |
+|    |-- create.js
+|    |
+|    |-- etc...
+|
+|-- Comments
+    |
+    |-- show.js
+    |
+    |-- create.js
+    | 
+    |-- etc...
+```
+
+Express-conductor will grab them all. Just expose an init function and define your routes accordingly.
+
+```javascript
+exports.module.init = function(app){
+  app.get('/posts/:id', showPost);
+};
+
+function showPost(req, res){
+  //Show post
+}
+```
+
 ##License
 MIT
