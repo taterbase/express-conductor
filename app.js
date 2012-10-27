@@ -2,7 +2,7 @@ var express = require('express')
   , path = require('path')
   , http = require('http')
   , PORT = process.env.PORT || 1337
-  , expressMVC = require('./lib/express-mvc')
+  , expressConductor = require('express-conductor')
   ;
 
 var app = express();
@@ -21,8 +21,8 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-//Initialize expressMVC and listen to port
-expressMVC.init(app, {controllers: __dirname + '/controllers'}, function(err, app){
+//Initialize expressConductor and listen to port
+expressConductor.init(app, {controllers: __dirname + '/controllers'}, function(err, app){
   http.createServer(app).listen(PORT, function(){
     console.log("Express server listening on port " + PORT);
   });
