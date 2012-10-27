@@ -22,7 +22,7 @@ app.configure('development', function(){
 });
 
 //Initialize expressMVC and listen to port
-expressMVC.init(app, function(err, app){
+expressMVC.init(app, {controllers: __dirname + '/controllers'}, function(err, app){
   http.createServer(app).listen(PORT, function(){
     console.log("Express server listening on port " + PORT);
   });

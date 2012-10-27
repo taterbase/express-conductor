@@ -3,7 +3,6 @@ exports.init = function(app){
 };
 
 function index(req, res){
-  console.log("HELLO");
   res.locals = {
     title: "Welcome"
   };
