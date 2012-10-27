@@ -1,6 +1,6 @@
 #express-conductor
 
-A library for moving your routes/controllers out of your app file.
+A library for moving your express routes/controllers out of your app file.
 
 ##Usage:
 
