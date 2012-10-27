@@ -1,1 +1,1 @@
-exports.module = require('./lib/express-conductor');
+exports = require('./lib/express-conductor');
