@@ -1,12 +1,16 @@
 {
   "name": "express-conductor",
   "version": "0.0.1",
+  "author": "taterbase",
+  "description": "A library for moving your express routes/controllers out of your app file.",
   "private": true,
-  "scripts": {
-    "start": "node app"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/taterbase/express-conductor.git"
   },
-  "dependencies": {
-    "express": "~3.0.0",
-    "jade": "*"
-  }
+  "license": "mit",
+  "keywords": [
+    "express",
+    "controllers",
+  ]
 }

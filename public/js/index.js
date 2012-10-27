@@ -1,3 +1,0 @@
-/*
- * TODO: Client Side JS
- */
