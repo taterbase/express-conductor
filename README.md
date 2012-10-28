@@ -74,7 +74,7 @@ controllers
 Express-conductor will grab them all. Just expose an init function and define your routes accordingly.
 
 ```javascript
-exports.module.init = function(app){
+module.exports.init = function(app){
   app.get('/posts/:id', showPost);
 };
 

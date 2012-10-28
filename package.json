@@ -1,6 +1,6 @@
 {
   "name": "express-conductor",
-  "version": "0.0.1-3",
+  "version": "0.0.1-4",
   "author": "taterbase",
   "description": "A library for moving your express routes/controllers out of your app file.",
   "repository": {
