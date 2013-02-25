@@ -83,5 +83,8 @@ function showPost(req, res){
 }
 ```
 
+##Testing
+Be sure to install the dev dependencies and just run `npm test`
+
 ##License
 MIT
