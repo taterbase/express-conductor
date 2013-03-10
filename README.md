@@ -1,4 +1,4 @@
-#express-conductor
+<img src="express-conductor.png" alt="Express Conductor" />
 
 A library for moving your express routes/controllers out of your app file.
 
