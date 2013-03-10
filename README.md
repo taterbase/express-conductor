@@ -2,6 +2,9 @@
 
 A library for moving your express routes/controllers out of your app file.
 
+##Status:
+[![Build Status](https://travis-ci.org/taterbase/express-conductor.png)](https://travis-ci.org/taterbase/express-conductor)
+
 ##Usage:
 
 Require express-conductor and after configuring your app file, pass it in detailing the location of your routes and controllers.
