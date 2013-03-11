@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports.init = function(conductor) {
-  conductor.get(get);
+  conductor.get(getPosts);
   conductor.get('postId', getPost);
 }
 

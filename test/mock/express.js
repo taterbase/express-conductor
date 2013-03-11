@@ -38,8 +38,11 @@ App.prototype.post = function(route, action) {
   }
 *********/
 App.prototype.makeRequest = function(route, method, data, cb) {
-  var res = new Res(cb);
-  this.routes[method](req, res, null);
+  var res = new Res(cb)
+    , req = data
+    ;
+
+  this.routes[method][route](data, res, null);
 };
 
 module.exports = App;
@@ -47,7 +50,7 @@ module.exports = App;
 function Res(cb) {
 
   Res.prototype.json = function(data) {
-    cb(null, JSON.stringify(data));
+    cb(null, data);
   };
 
   return this;

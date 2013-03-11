@@ -1,9 +1,10 @@
 /*global it:true describe:true */
 "use strict";
 
-var express = require('./mock/express'),
-    app,
-    expressConductor = require('../lib/express-conductor');
+var express = require('./mock/express')
+  , waitress = require('waitress')
+  , expressConductor = require('../lib/express-conductor')
+  ;
 
 describe('Express Conductor', function(){
 
@@ -11,7 +12,7 @@ describe('Express Conductor', function(){
 
     var app = new express();
 
-    expressConductor.init(app, {controllers: __dirname + '/controllers'}, function(err, app){
+    expressConductor.init(app, {routes: __dirname + '/controllers'}, function(err, app){
       app.should.have.property('routes');
       app.routes.should.have.property('get');
       app.routes.get.should.have.property('/posts');
@@ -24,36 +25,49 @@ describe('Express Conductor', function(){
 
   describe('2.0 functionality', function(){
 
+    var app = new express();
+
+    before(function(done){
+      expressConductor.init(app, {routes: __dirname + '/controllers2', useDirPath: true}, done);
+    });
+
     describe('Route building', function(){
 
       it('should build routes based on folder structure', function(done){
 
-        var app = new express();
+        var next = waitress(4, done);
 
-        expressConductor.init(app, {controllers: __dirname + '/controllers', useDirPath: true}, function(err, app){
+        app.makeRequest('/', 'get', null, function(err, result){
+          result.route.should.equal('/');
+          result.method.should.equal('get');
+          next(err);
+        });
 
-          app.should.have.property('routes');
-          app.routes.should.have.property('get');
-          app.routes.should.have.property('put');
-          app.routes.should.have.property('del');
-          app.routes.should.have.property('post');
+        app.makeRequest('/', 'put', null, function(err, result){
+          result.route.should.equal('/');
+          result.method.should.equal('put');
+          next(err);
+        });
 
-          app.routes.get.should.have.property('/');
-          app.routes.put.should.have.property('/');
-          app.routes.post.should.have.property('/');
-          app.routes.del.should.have.property('/');
+        app.makeRequest('/', 'post', null, function(err, result){
+          result.route.should.equal('/');
+          result.method.should.equal('post');
+          next(err);
+        });
 
-          app.routes.get.should.have.property('/posts');
-          app.routes.get.should.have.property('/posts/:postId');
-
+        app.makeRequest('/', 'del', null, function(err, result){
+          result.route.should.equal('/');
+          result.method.should.equal('delete');
+          next(err);
         });
 
       });
 
-      it('should expose get');
-      it('should expose put');
-      it('should expose del');
-      it('should expose post');
+      it('should allow params defined inside of files');
+
+      it('should allow params defined in file name');
+
+      it('should allow params defined in folder name');
 
     });
 
