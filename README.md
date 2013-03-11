@@ -10,6 +10,12 @@ A library for moving your express routes/controllers out of your app file.
 Require express-conductor and after configuring your app file, pass it in detailing the location of your routes and controllers.
 
 ```javascript
+var expressConductor = require('express-conductor');
+
+/*
+ * Normal express setup...
+ */
+
 expressConductor.init(app, {controllers: __dirname + '/controllers'}, function(err, app){
   http.createServer(app).listen(PORT, function(){
     console.log("Express server listening on port " + PORT);
